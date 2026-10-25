@@ -1,0 +1,23 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.demon86rm.mannaggia",
+      "sha256_cert_fingerprints": [
+        "2A:3A:75:8B:EF:28:B9:F3:52:EB:7A:02:F1:AA:27:BF:A3:60:C5:1B:72:67:B7:6E:4C:9D:CD:D2:44:8D:48:A5",
+        "76:33:A2:8C:CE:02:4B:9B:32:BE:93:AE:75:5B:21:83:7A:C9:82:00:5D:60:37:5E:03:D7:E2:B1:EB:3A:0A:50"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.demon86rm.mannaggia.debug",
+      "sha256_cert_fingerprints": [
+        "2D:7B:23:CF:47:53:C0:54:DE:07:13:C5:D2:CC:42:57:09:03:05:00:B4:C2:42:0B:24:3F:A7:AB:83:F4:82:7D"
+      ]
+    }
+  }
+]

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Un dono da Mannaggia</title>
+<style>
+  :root { --bg: #fffaf0; --fg: #2a1a1a; --card: #ffffff; --accent: #8b0000; --gold: #b8860b; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #1c1414; --fg: #f3e9e0; --card: #2a1f1f; --accent: #ff5252; --gold: #ffc107; } }
+  body { margin: 0; padding: 2rem 16px; background: var(--bg); color: var(--fg); font: 18px/1.5 system-ui, sans-serif; }
+  main { max-width: 32rem; margin: 0 auto; background: var(--card); border: 3px solid var(--gold); padding: 1.5rem; text-align: center; }
+  h1 { color: var(--accent); font-size: 1.6rem; margin-top: 0; }
+  #santo { color: var(--gold); font-weight: bold; }
+  a.btn { display: block; margin: .8rem 0; padding: .8rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: bold; }
+  a.secondario { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  small { opacity: .75; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ti hanno regalato un santo!</h1>
+  <p id="dono">Qualcuno ti ha regalato una figurina per il tuo album di <b>Mannaggia</b>.</p>
+  <a class="btn" id="apri" href="https://play.google.com/store/apps/details?id=io.github.demon86rm.mannaggia">Apri in Mannaggia</a>
+  <p>Non hai ancora l'app?</p>
+  <a class="btn secondario" href="https://play.google.com/store/apps/details?id=io.github.demon86rm.mannaggia">Scaricala da Google Play</a>
+  <a class="btn secondario" href="https://github.com/demon86rm/mannaggia/releases/latest">Oppure l'APK da GitHub</a>
+  <p><small>Installa Mannaggia solo da Google Play o da GitHub. Questa pagina non raccoglie dati e non usa cookie: il nome del santo resta nel tuo browser.</small></p>
+</main>
+<script>
+  // The gift is in the fragment (#s=<santo>&k=<sha1[:4]>), which never reaches the server.
+  // Untrusted input: shown only if it looks like a saint's name and its check matches, and only via textContent.
+  (async () => {
+    const p = new URLSearchParams(location.hash.slice(1));
+    const s = p.get("s") || "", k = (p.get("k") || "").toLowerCase();
+    if (s.length > 80 || !/^(San|Santa|Santo|Sant'|Beato|Beata)[ A-Za-zÀ-ÿ'’.\-]+$/.test(s)) return;
+    const hash = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(s));
+    const hex = Array.from(new Uint8Array(hash), b => b.toString(16).padStart(2, "0")).join("");
+    if (hex.slice(0, 4) !== k) return;
+    const dono = document.getElementById("dono");
+    dono.textContent = "Ti hanno regalato ";
+    const b = document.createElement("span");
+    b.id = "santo"; b.textContent = s;
+    dono.append(b, " per il tuo album di Mannaggia.");
+    // Chrome opens the app from an intent:// URL (the gift goes in the query: the fragment is taken by #Intent).
+    const q = "s=" + encodeURIComponent(s) + "&k=" + encodeURIComponent(k);
+    document.getElementById("apri").href = "intent://demon86rm.github.io/mannaggia/dono/?" + q +
+      "#Intent;scheme=https;package=io.github.demon86rm.mannaggia;" +
+      "S.browser_fallback_url=" + encodeURIComponent("https://play.google.com/store/apps/details?id=io.github.demon86rm.mannaggia") + ";end";
+  })();
+</script>
+</body>
+</html>
