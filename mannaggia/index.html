@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mannaggia: un santo a caso, quando serve</title>
+<meta name="description" content="App Android gratuita, offline e senza pubblicità: invoca uno degli oltre 5000 santi e beati del calendario. Erede di mannaggia.sh.">
+<meta property="og:title" content="Mannaggia">
+<meta property="og:description" content="Un santo a caso, quando serve. App Android gratuita, offline e senza pubblicità.">
+<meta property="og:image" content="https://demon86rm.github.io/mannaggia/img/banner.png">
+<style>
+  :root { --bg: #fffaf0; --fg: #2a1a1a; --card: #ffffff; --accent: #8b0000; --gold: #b8860b; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #1c1414; --fg: #f3e9e0; --card: #2a1f1f; --accent: #ffc107; --gold: #d4a017; } }
+  body { margin: 0; padding: 1.5rem 16px 3rem; background: var(--bg); color: var(--fg); font: 18px/1.55 system-ui, sans-serif; }
+  main { max-width: 44rem; margin: 0 auto; }
+  img { max-width: 100%; height: auto; display: block; }
+  .banner { image-rendering: pixelated; margin: 0 auto 1.5rem; }
+  h2 { color: var(--accent); font-size: 1.3rem; margin: 2rem 0 .5rem; }
+  .azioni { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0; }
+  a.btn { flex: 1 1 12rem; text-align: center; padding: .8rem; background: #8b0000; color: #fff; text-decoration: none; font-weight: bold; }
+  a.secondario { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  a { color: var(--accent); }
+  .schermate { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1.5rem 0; }
+  .schermate img { border: 3px solid var(--gold); }
+  ul { padding-left: 1.2rem; }
+  small { opacity: .75; }
+</style>
+</head>
+<body>
+<main>
+  <img class="banner" src="img/banner.png" width="1024" height="500" alt="Mannaggia! Un santo a caso, quando serve.">
+  <p>Server giù? Deploy del venerdì andato male? <b>Mannaggia</b> invoca per te uno degli oltre 5000 santi e beati del calendario. È un'app Android gratuita, erede di <code>mannaggia.sh</code>, lo storico script dei sistemisti italiani.</p>
+
+  <div class="azioni">
+    <a class="btn" href="https://forms.gle/wHWbGGDAmRQnpswL7">Diventa tester</a>
+    <a class="btn secondario" href="https://github.com/demon86rm/mannaggia">Il codice su GitHub</a>
+  </div>
+  <p><small>L'arrivo sul Google Play è vicino: serve un test chiuso con almeno 12 tester.</small></p>
+
+  <div class="schermate">
+    <img src="img/schermata-1.png" width="1080" height="1920" alt="Schermata iniziale">
+    <img src="img/schermata-2.png" width="1080" height="1920" alt="Invocazione di un santo leggendario">
+    <img src="img/schermata-4.png" width="1080" height="1920" alt="Album dei santi">
+  </div>
+
+  <h2>Cosa fa</h2>
+  <ul>
+    <li>Un santo a caso con un tocco, una scossa, dal widget o dalle Impostazioni rapide.</li>
+    <li>Un album di figurine in pixel art: ogni santo invocato si aggiunge alla collezione.</li>
+    <li>Trofei segreti, con colori, cornici e formule d'invocazione da sbloccare.</li>
+    <li>Figurine da regalare agli amici con un link, e quadri dei tuoi santi preferiti.</li>
+    <li>La frase letta dalla sintesi vocale del telefono.</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>Funziona offline, non chiede permessi di rete e non raccoglie dati: niente pubblicità, account o tracciamento. <a href="https://github.com/demon86rm/mannaggia/blob/main/PRIVACY.md">Leggi l'informativa</a>.</p>
+
+  <p><small>Software libero, licenza GPL-3.0. <a href="https://github.com/demon86rm/mannaggia/issues/new/choose">Segnala un problema o proponi un'idea</a> · <a href="https://ko-fi.com/demon86rm">Offrimi un caffè</a></small></p>
+</main>
+</body>
+</html>
