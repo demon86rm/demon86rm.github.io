@@ -35,7 +35,7 @@
     <a class="btn" href="https://forms.gle/wHWbGGDAmRQnpswL7">Diventa tester</a>
     <a class="btn secondario" href="https://github.com/demon86rm/mannaggia">Il codice su GitHub</a>
   </div>
-  <p><small>L'arrivo sul Google Play è vicino: serve un test chiuso con almeno 12 tester.</small></p>
+  <p><small>L'arrivo sul Google Play è vicino: serve un test chiuso con almeno 12 tester. <span id="contatore"></span></small></p>
 
   <div class="schermate">
     <img src="img/schermata-1.png" width="1080" height="1920" alt="Schermata iniziale">
@@ -57,5 +57,11 @@
 
   <p><small>Software libero, licenza GPL-3.0. <a href="https://github.com/demon86rm/mannaggia/issues/new/choose">Segnala un problema o proponi un'idea</a> · <a href="https://ko-fi.com/demon86rm">Offrimi un caffè</a></small></p>
 </main>
+<script>
+  // Date end of the closed test (14 days with at least 12 testers); no external services.
+  const giorni = Math.ceil((new Date(2026, 10, 7) - new Date()) / 86400000);
+  if (giorni > 0) document.getElementById("contatore").textContent =
+    giorni === 1 ? "Manca 1 giorno alla fine del test." : "Mancano " + giorni + " giorni alla fine del test.";
+</script>
 </body>
 </html>
